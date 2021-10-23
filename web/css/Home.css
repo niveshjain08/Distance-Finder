@@ -8,7 +8,14 @@
     margin: 0px;
     border-radius: -5px;
 }
-
+.link {
+    padding: 10px;
+    background-color: rgb(197 238 249);
+    font-weight: 800;
+    font-family: fangsong;
+    /* border-radius: 15px; */
+    cursor: pointer;
+}
 .headline-right {border-radius: 17px;overflow: hidden;width: 30%;}
 
 .h1 {

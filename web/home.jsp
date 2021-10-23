@@ -10,14 +10,7 @@
 		<link rel="stylesheet" href="css/Home.css">
     </head>
     <body>
-        <nav class="header">
-			<div class="header-logo"><img src="img/logo.png"/></div>
-			<div class="header-right">
-				<div class="link">Feature</div>
-				<div class="link">Login</div>
-				<div class="link">Sign Up</div>
-			</div>
-		</nav>
+        <%@include file="header.jsp" %> 
 		<div class="main">
 			<div class="headline">
 			
@@ -26,9 +19,9 @@
 			</div>
 			<div class="headline-left">
 				<div class="h1">How tracking links work</div>
-				<div class="h2">When a user clicks a tracking link, the user’s connection first 
+				<div class="h2">When a user clicks a tracking link, the user?s connection first 
 				passes through a tracking service (such as Linkly). This logs information about the 
-				click (such as the location, device, and time), and then redirects the user’s browser 
+				click (such as the location, device, and time), and then redirects the user?s browser 
 				to the final destination. </div>
 				<div class="button">Start Up</div>
 			</div>
@@ -63,26 +56,6 @@
 			</div>
 			</div>
 		</div>
-		</div>
-		<div class="footer">
-			<div class="fdiv">
-				<div class="fdivcon">Home</div>
-				<div class="fdivcon">Login</div>
-				<div class="fdivcon">Register</div>
-				<div class="fdivcon">Contact</div>
-			</div>
-			<div class="fdiv">
-				<div class="fdivhead">Helpline Numbers</div>
-				<div class="fdivcon">Police : 100</div>
-				<div class="fdivcon">Fire Station : 101</div>
-				<div class="fdivcon">Ambulance : 102, 108</div>
-				<div class="fdivcon">Child Helpline : 1098</div>
-				<div class="fdivcon">Women Helpline : 1090, 1091</div>
-			</div>
-		</div>
-		<div class="developer">
-				Copyright 2021 &#169; Location Finder <br>
-			Degine & Developed By CJKN
-		</div>
+        <%@include file="footer.jsp" %> 
     </body>
 </html>
