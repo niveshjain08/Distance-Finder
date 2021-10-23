@@ -13,7 +13,7 @@
     <body>
         <%@include file="header.jsp" %>
         <div class="main">
-            <form method="post" action="verify.jsp"  onsubmit="return signup()">
+            <form method="post" action="verify.jsp"  >
 			<div class="login">
 			<div class="lhead">Create to Account for Easy access</div>
 			<div class="lhead3">

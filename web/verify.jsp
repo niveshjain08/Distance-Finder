@@ -1,3 +1,4 @@
+<%@page import="Controller.DAO"%>
 <%@page import="OTP.Otp"%>
 <%@page import="Mail.SendMail"%>
 <!DOCTYPE html>
@@ -14,6 +15,11 @@
     </head>
     <body>
         <%
+               String mail = request.getParameter("Email");
+    DAO d = new DAO();
+    if(d.isEmailValid(mail)){
+    response.sendRedirect("alreadyexistmail.jsp");
+    }
           String otp =   new Otp().generateOTP();
         String q = "<table width = 100% bgcolor= 'white' style='color:blue;'>"
                 + "<tr><td><h2><center> <img width='100px' src='https://drive.google.com/uc?id=1WfsRZGQGcoaXYL0OITEfjXxFAYrQ5s0c'></center> <h2><td><tr>"
@@ -21,9 +27,9 @@
                 + "<tr><td><center> Welcome </center> <td><tr>"
                 + "<tr><td><h4><center> Your OTP is "+otp+"</center> <h4><td><tr></div>";
                 session.setAttribute("OTP", otp);
-               String mail = request.getParameter("Email");
                String password = request.getParameter("Password");
                        new SendMail().sendmail(mail, q);
+                       
         
         
         %>
