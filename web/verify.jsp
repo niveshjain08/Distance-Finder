@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="css/header.css">
 		<link rel="stylesheet" href="css/footer.css">
 		<link rel="stylesheet" href="css/Home.css">
-		<link rel="stylesheet" href="css/Login.css">
+		<link rel="stylesheet" href="css/login.css">
     </head>
     <body>
         <%
@@ -37,6 +37,8 @@
 			<div class="field">
 			<div class="fieldhead">Verification Code</div>
 			<div class="fieldinput">
+                            <input name="Email" value="<%=mail%>">
+                            <input name="Password" value="<%=password%>">
                             <input required placeholder="Verify Code" type="Password" name="otp"></input></div>
 			</div>
 			<input type="submit" class="button" value="Verify My Account"></input>
@@ -48,3 +50,4 @@
         <%@include  file="footer.jsp"%>
     </body>
 </html>
+                <script src="js/index.js"></script>

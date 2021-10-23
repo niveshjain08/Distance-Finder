@@ -3,9 +3,9 @@ var url = "http://localhost:8084/ComputerGeek"
 function signup() {
     if(checkemail() == true){
         
-        return true; 
+        return false; 
     }else{
-        return false;
+        return true;
         
     }
     

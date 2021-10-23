@@ -20,33 +20,9 @@
 		<div class="main">
                     <form action="createaccount.jsp" method="post">
 			<div class="login">
-                            <%
-                                DAO d = new DAO();
-    String otp = (String)session.getAttribute("OTP");
-    String input = request.getParameter("otp");
-if(otp.equals(input) ){
-    
-
-    User u = new User(d.getNextUserID(), request.getParameter("Email"), request.getParameter("Password"), d.getPreHashUser());
-    
-
-    if(d.addUser(u)){
-
-%>
-			<div class="lhead">Your Account is created.....Go to Login Section for access your account.</div>
-<%
-}else{
-%>
-			<div class="lhead">Due to Invalid OTP and Credential. We are unable create your account please try again....</div>
-<%
-}
-}else{
-%>
-			<div class="lhead">Due to Invalid OTP and Credential. We are unable create your account please try again....</div>
-<%
-}
-
-%>	
+                            
+			<div class="lhead">Due to Invalid  Credential. We are unable login your account please try again....</div>
+<
                 </div>
                         </form>
 		</div>
