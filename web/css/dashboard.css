@@ -17,7 +17,7 @@
 .content {width: -webkit-fill-available;display: flex;flex-direction: column;text-align: center;background: linear-gradient(236deg, #dccdeb, transparent);}
 
 .panellink {
-    padding: 10px 10px;
+    padding: 23px 10px;
     font-family: -webkit-pictograph;
     font-weight: 700;
     cursor: pointer;
@@ -26,6 +26,27 @@
 
 .panellink:hover {
     background-color: #0e6664;
+}
+.fieldinput.fieldinput1 {
+    display: flex;
+}
+
+.fieldinput.fieldinput1 .button {width: 20%;cursor: pointer;}
+
+.fieldinput.fieldinput1 in {}
+
+.fieldinput.fieldinput1 input {
+    /* padding: 0; */
+    margin: 7px;
+}
+.share {
+    display: flex;
+    justify-content: space-around;
+    width: inherit;
+}
+
+.share div {
+    width: auto;
 }
 
 .cheader {

@@ -9,7 +9,7 @@
 .header-right {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: end;
     align-items: center;
     width: 75%;
     /* background: linear-gradient(340deg, black, transparent); */
@@ -26,5 +26,9 @@
     justify-content: center;
     padding: 6px;
 }
-
+.panellink.active {
+    border-bottom: 3px solid #576278;
+    border-top: 3px solid #576278;
+    background-color: #0e6664;
+}
 body {background: linear-gradient(67deg, #79e3f3bd, #ffffffe0);}

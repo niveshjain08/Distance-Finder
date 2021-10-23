@@ -4,6 +4,10 @@ public class User {
     int userId;
     String hash, email, password, preHash;
 
+    public User() {
+    }
+
+    
     public User(int userId, String email, String password, String preHash) {
         this.userId = userId;
         this.email = email;
@@ -26,9 +30,11 @@ public class User {
         return hash;
     }
 
-    public void setHash() {
-        this.hash = this.toString().hashCode()+"";
+    public void setHash(String hash) {
+        this.hash = hash;
     }
+
+    
 
     public String getEmail() {
         return email;

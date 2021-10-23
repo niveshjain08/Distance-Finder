@@ -2,21 +2,35 @@ package Model;
 
 public class Request {
     String hash, someone, dt, preHash;
-    int requestid;
+    int requestid, userid;
 
-    public Request( String someone, String dt, String preHash, int requestid) {
+    public Request( String someone, String dt, String preHash, int requestid, int userid) {
         this.requestid = requestid;
         this.someone = someone;
         this.dt = dt;
         this.preHash = preHash;
+        this.userid = userid;
         this.hash = this.toString().hashCode()+"";
     }
+
+    public Request() {
+    }
     
+    public int getUserid() {
+        return userid;
+    }
+
+    public void setUserid(int userid) {
+        this.userid = userid;
+    }
+
     
     @Override
     public String toString() {
-        return "Request{" + "hash=" + hash + ", someone=" + someone + ", dt=" + dt + ", preHash=" + preHash + ", requestid=" + requestid + '}';
+        return "Request{" + "hash=" + hash + ", someone=" + someone + ", dt=" + dt + ", preHash=" + preHash + ", requestid=" + requestid + ", userid=" + userid + '}';
     }
+    
+    
     
     
     public String getHash() {
