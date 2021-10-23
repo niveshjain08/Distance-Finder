@@ -2,6 +2,7 @@
 package Controller;
 
 import Connection.MyCon;
+import Model.Accept;
 import Model.Request;
 import Model.User;
 import java.io.IOException;
@@ -81,7 +82,7 @@ public class DAO {
         ResultSet rs = ps.executeQuery();
         String s = "0";
         while(rs.next()) {
-            s = rs.getString("preHash");
+            s = rs.getString("Hash");
             
         }
         con.close();
@@ -213,5 +214,69 @@ public class DAO {
         }
         return null;
 
+    }
+      
+      
+      public String  getPreHashAccept() throws SQLException {
+        String sql;
+        int n = 10000;
+        Connection con = null;
+        PreparedStatement ps = null;
+        con = MyCon.getConnection();
+        sql = "Select * from login";
+        ps = con.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        String s = "0";
+        while(rs.next()) {
+            s = rs.getString("Hash");
+            
+        }
+        con.close();
+        return s;
+    }
+      
+      public Request getRequestByHash(int Hash) throws SQLException {
+        Connection con = null;
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        con = MyCon.getConnection();
+        String sql;
+        sql = "select * from request where hash = ?";
+        ps = con.prepareStatement(sql);
+        ps.setInt(1, Hash);
+        rs = ps.executeQuery();
+        Request r = new Request();
+        if (rs.next()) {
+            r.setRequestid(rs.getInt("requestid"));
+            r.setDt(rs.getString("dt"));
+            r.setHash(rs.getString("hash"));
+            r.setSomeone(rs.getString("someone"));
+            r.setUserid(rs.getInt("userid"));
+            r.setPreHash(rs.getString("preHash"));
+            con.close();
+            return r;
+        }
+        return null;
+
+    }
+      public boolean addaccept(Accept a) throws SQLException, IOException {
+        String sql;
+        Connection con = null;
+        PreparedStatement ps = null;
+        con = MyCon.getConnection();
+        sql = "Insert into accept values(?,  ?, ?, ? ,?, ?)";
+        ps = con.prepareStatement(sql);
+        ps.setString(1, a.getHash());
+        ps.setInt(2, a.getRequestid());
+        ps.setString(3, a.getIp());
+        ps.setString(4, a.getDt());
+        ps.setString(5, a.getPreHash());
+        int n = ps.executeUpdate();
+        con.close();
+        if (n > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

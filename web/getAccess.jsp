@@ -1,17 +1,28 @@
-<%-- 
-    Document   : getAccess
-    Created on : Oct 23, 2021, 11:07:38 PM
-    Author     : Admin
---%>
+<%@page import="Model.Accept"%>
+<%@page import="Model.Request"%>
+<%@page import="Controller.DAO"%>
+<%@page import="java.io.InputStreamReader"%>
+<%@page import="java.io.BufferedReader"%>
+<%@page import="java.net.URL"%>
+<%@page import="java.net.InetAddress"%>
+<%
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
+   InetAddress my_localhost = InetAddress.getLocalHost();
+      out.println("The IP Address of client is : " + (my_localhost.getHostAddress()).trim());
+      String my_system_address = "";
+      try{
+         URL my_url = new URL("http://bot.whatismyipaddress.com");
+         BufferedReader my_br = new BufferedReader(new
+         InputStreamReader(my_url.openStream()));
+         my_system_address = my_br.readLine().trim();
+      }
+      catch (Exception e){
+         my_system_address = "0.0.0.0";
+      }
+      out.print(my_system_address);
+      String hash = request.getParameter("u");
+      DAO d = new DAO();
+      Request r = d.getRequestByHash(Integer.parseInt(hash));
+      Accept a = new Accept(my_system_address, d.getPreHashAccept(), dt, requestid)
+    
+%>

@@ -50,7 +50,8 @@
                                                 <div class="link">
                                                     <%=url%>
                                                 </div>
-                                                <div class="share"><a href="https://wa.me/?lang=en&text=*Distance Finder*   <%=url%>"    data-action="share/whatsapp/share"  
+                                                <div class="share">
+                                                    <a href="https://wa.me/?lang=en&text=*Distance Finder*   <%=url%>"    data-action="share/whatsapp/share"  
         target="_blank">
                                                     <div class="button" >Whatsapp </div> </a> 
                                                     <div class="button">Facebook </div>
