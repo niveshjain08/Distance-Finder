@@ -1,3 +1,5 @@
+<%@page import="java.time.LocalDateTime"%>
+<%@page import="java.time.format.DateTimeFormatter"%>
 <%@page import="Model.Accept"%>
 <%@page import="Model.Request"%>
 <%@page import="Controller.DAO"%>
@@ -19,10 +21,16 @@
       catch (Exception e){
          my_system_address = "0.0.0.0";
       }
+DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+   LocalDateTime now = LocalDateTime.now();     
       out.print(my_system_address);
       String hash = request.getParameter("u");
       DAO d = new DAO();
       Request r = d.getRequestByHash(Integer.parseInt(hash));
-      Accept a = new Accept(my_system_address, d.getPreHashAccept(), dt, requestid)
-    
+      Accept a = new Accept(my_system_address, d.getPreHashAccept(), now.toString(), r.getRequestid());
+      if(d.addaccept(a)){
+          response.sendRedirect("home.jsp");
+      }else{
+      out.print("Invalid");
+      }
 %>

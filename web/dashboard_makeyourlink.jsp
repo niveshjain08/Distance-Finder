@@ -16,10 +16,10 @@
 		<div class="main">
 			<div class="dashboard">
 				<div class="panel">
-					<div class="panellink active">Find Distance</div>
-					<div class="panellink">Distance Tracker</div>
+					<div class="panellink active"  onclick="window.location.href='dashboard_makeyourlink.jsp'">Find Distance</div>
+					<div class="panellink "   onclick="window.location.href='dashboard_distancetraker.jsp'">Distance Finder</div>
 					<div class="panellink"></div>
-					<div class="panellink">Logout</div>
+					<div class="panellink" onclick="window.location.href='logout.jsp'">Logout</div>
 				</div>
 				<div class="content">
 					<div class="cheader">Find Distance</div>

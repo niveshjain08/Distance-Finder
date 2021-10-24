@@ -17,10 +17,10 @@
 		<div class="main">
 			<div class="dashboard">
 				<div class="panel">
-					<div class="panellink active">Find Distance</div>
-					<div class="panellink">Distance Tracker</div>
+					<div class="panellink active"  onclick="window.location.href='dashboard_makeyourlink.jsp'">Find Distance</div>
+					<div class="panellink "   onclick="window.location.href='dashboard_distancetraker.jsp'">Distance Finder</div>
 					<div class="panellink"></div>
-					<div class="panellink">Logout</div>
+					<div class="panellink" onclick="window.location.href='logout.jsp'">Logout</div>
 				</div>
 				<div class="content">
 					<div class="cheader">Find Distance</div>
@@ -43,7 +43,7 @@
                                                 if(session.getAttribute("RID") != null){
                                                     int RID = (int)session.getAttribute("RID");
                                                     Request r = d.getRequestByID(RID);
-                                                    String url = "http://localhost:8080/ComputerGeek/getAccess.jsp?u="+r.getHash();
+                                                    String url = "https://cjkn.herokuapp.com/getAccess.jsp?u="+r.getHash();
                                                     %>
                                                    <div class="head4">Link to be share with <%=r.getSomeone()%> </div>
 

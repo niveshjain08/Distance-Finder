@@ -10,6 +10,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DAO {
     public boolean isEmailValid(String Email) throws SQLException {
@@ -264,7 +266,7 @@ public class DAO {
         Connection con = null;
         PreparedStatement ps = null;
         con = MyCon.getConnection();
-        sql = "Insert into accept values(?,  ?, ?, ? ,?, ?)";
+        sql = "Insert into accepted values(?,  ?, ?, ? ,?)";
         ps = con.prepareStatement(sql);
         ps.setString(1, a.getHash());
         ps.setInt(2, a.getRequestid());
@@ -278,5 +280,53 @@ public class DAO {
         } else {
             return false;
         }
+    }
+      public List<Request> getAllUserByType(int requestid) throws SQLException {
+        Connection con = null;
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        con = MyCon.getConnection();
+        String sql;
+        sql = "select * from request where userid = ? ";
+        ps = con.prepareStatement(sql);
+        ps.setInt(1, requestid);
+        rs = ps.executeQuery();
+        List<Request> mylist = new ArrayList<Request>();
+        while (rs.next()) {
+            Request u = new Request();
+            u.setHash(rs.getString("Hash"));
+            u.setDt(rs.getString("dt"));
+            u.setRequestid(rs.getInt("requestid"));
+            u.setPreHash(rs.getString("preHash"));
+            u.setSomeone(rs.getString("someone"));
+            u.setUserid(rs.getInt("userid"));
+            mylist.add(u);
+            u = null;
+        }
+        con.close();
+        return mylist;
+    }
+      public Accept getAcceptByRequestID(int RequestID) throws SQLException {
+        Connection con = null;
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        con = MyCon.getConnection();
+        String sql;
+        sql = "select * from accepted where Requestid = ?";
+        ps = con.prepareStatement(sql);
+        ps.setInt(1, RequestID);
+        rs = ps.executeQuery();
+        Accept r = new Accept();
+        if(rs.next()) {
+            r.setHash(rs.getString("hash"));
+            r.setRequestid(rs.getInt("requestid"));
+            r.setIp(rs.getString("ip"));
+            r.setDt(rs.getString("dt"));
+            r.setPreHash(rs.getString("preHash"));
+            con.close();
+            return r;
+        }
+        return null;
+
     }
 }

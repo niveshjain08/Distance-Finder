@@ -12,6 +12,9 @@ public class Accept {
         this.hash = this.toString().hashCode()+"";
     }
 
+    public Accept() {
+    }
+    
     @Override
     public String toString() {
         return "Accept{" + "hash=" + hash + ", ip=" + ip + ", preHash=" + preHash + ", dt=" + dt + ", requestid=" + requestid + '}';

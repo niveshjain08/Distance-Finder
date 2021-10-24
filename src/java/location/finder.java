@@ -15,38 +15,19 @@ import java.net.InetAddress;
 
 public class finder {
 
-    public static void main(String[] args) throws IOException, GeoIp2Exception {
-        // A File object pointing to your GeoIP2 or GeoLite2 database
-//// A File object pointing to your GeoIP2 or GeoLite2 database
-File database = new File("gj.mndb");
+   public static double distance_Between_LatLong(double lat1, double lon1, double lat2, double lon2) {
 
-// This creates the DatabaseReader object. To improve performance, reuse
-// the object across lookups. The object is thread-safe.
-DatabaseReader reader = new DatabaseReader.Builder(database).build();
+lat1 = Math.toRadians(lat1);
 
-InetAddress ipAddress = InetAddress.getByName("128.101.101.101");
+lon1 = Math.toRadians(lon1);
 
-// Replace "city" with the appropriate method for your database, e.g.,
-// "country".
-CityResponse res = reader.city(ipAddress);
+lat2 = Math.toRadians(lat2);
 
-Country country = res.getCountry();
-System.out.println(country.getIsoCode());            // 'US'
-System.out.println(country.getName());               // 'United States'
-System.out.println(country.getNames().get("zh-CN")); // '美国'
+lon2 = Math.toRadians(lon2);
 
-Subdivision subdivision = res.getMostSpecificSubdivision();
-System.out.println(subdivision.getName());    // 'Minnesota'
-System.out.println(subdivision.getIsoCode()); // 'MN'
+double earthRadius = 6371.01; //Kilometers
 
-City city = res.getCity();
-System.out.println(city.getName()); // 'Minneapolis'
+return earthRadius * Math.acos(Math.sin(lat1)*Math.sin(lat2) + Math.cos(lat1)*Math.cos(lat2)*Math.cos(lon1 - lon2));
 
-Postal postal = res.getPostal();
-System.out.println(postal.getCode()); // '55455'
-
-Location location = res.getLocation();
-System.out.println(location.getLatitude());  // 44.9733
-System.out.println(location.getLongitude()); // -93.2323
-    }
+}
 }
