@@ -16,8 +16,8 @@
     <body>
         <%
                String mail = request.getParameter("Email");
-    DAO d = new DAO();
-    if(d.isEmailValid(mail)){
+    DAO d1 = new DAO();
+    if(d1.isEmailValid(mail)){
     response.sendRedirect("alreadyexistmail.jsp");
     }
           String otp =   new Otp().generateOTP();
@@ -43,8 +43,8 @@
 			<div class="field">
 			<div class="fieldhead">Verification Code</div>
 			<div class="fieldinput">
-                            <input name="Email" value="<%=mail%>">
-                            <input name="Password" value="<%=password%>">
+                            <input name="Email"  type="hidden" value="<%=mail%>">
+                            <input name="Password"  type="hidden" value="<%=password%>">
                             <input required placeholder="Verify Code" type="Password" name="otp"></input></div>
 			</div>
 			<input type="submit" class="button" value="Verify My Account"></input>

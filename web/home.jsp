@@ -23,7 +23,7 @@
 				passes through a tracking service (such as Linkly). This logs information about the 
 				click (such as the location, device, and time), and then redirects the user?s browser 
 				to the final destination. </div>
-				<div class="button">Start Up</div>
+				<div class="button" onclick="window.location.href='signup.jsp';">Start Up</div>
 			</div>
 			</div>
 			
@@ -38,21 +38,6 @@
 				<br>The IP address, which can be traced to reveal where a click was made, and if that user has clicked before. Services like Linkly anonymize this data to comply GDPR.
 				<br>The type of device - for example, an Android mobile device or a laptop running WIndows.
 				<br>Where the user was redirected after.
-			</div>
-			<div class="items">
-				<div class="item">
-				
-					<div class="itemimg"><img src="img/headlineimage.png"/></div>
-					<div class="itemhead">Digital Health Records</div>
-					<div class="itemdes">Access your information right from admission to treatment and discharge in a paperless manner</div>
-				</div>
-			<div class="item">
-				
-					<div class="itemimg"><img src="img/idlogo.svg"/></div>
-					<div class="itemhead">Digital Health Records</div>
-					<div class="itemdes">Access your information right from admission to treatment and discharge in a paperless manner</div>
-				</div>
-			
 			</div>
 			</div>
 		</div>

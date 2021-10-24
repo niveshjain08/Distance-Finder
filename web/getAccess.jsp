@@ -28,9 +28,7 @@ DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
       DAO d = new DAO();
       Request r = d.getRequestByHash(Integer.parseInt(hash));
       Accept a = new Accept(my_system_address, d.getPreHashAccept(), now.toString(), r.getRequestid());
-      if(d.addaccept(a)){
+ d.addaccept(a);
           response.sendRedirect("home.jsp");
-      }else{
-      out.print("Invalid");
-      }
+ 
 %>

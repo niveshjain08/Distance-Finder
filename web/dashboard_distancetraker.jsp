@@ -19,20 +19,31 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="css/header.css">
 		<link rel="stylesheet" href="css/footer.css">
-		<link rel="stylesheet" href="css/Home.css">
 		<link rel="stylesheet" href="css/Login.css">
 		<link rel="stylesheet" href="css/dashboard.css">
+		<link rel="stylesheet" href="css/Home.css">
     </head>
     <body>
         <%@include file="header.jsp" %>
 		<div class="main">
 			<div class="dashboard">
 				<div class="panel">
-					<div class="panellink"  onclick="window.location.href='dashboard_makeyourlink.jsp'">Find Distance</div>
+					<div class="panellink "  onclick="window.location.href='dashboard_makeyourlink.jsp'">Find Distance</div>
 					<div class="panellink active"   onclick="window.location.href='dashboard_distancetraker.jsp'">Distance Finder</div>
 					<div class="panellink"></div>
 					<div class="panellink" onclick="window.location.href='logout.jsp'">Logout</div>
 				</div>
+                            <div class="dropdown panellink">
+                              <span>User Options </span>
+                              <div class="dropdown-content">
+                              <p><div class="panel  panel1">
+					<div class="panellink "  onclick="window.location.href='dashboard_makeyourlink.jsp'">Find Distance</div>
+					<div class="panellink active"   onclick="window.location.href='dashboard_distancetraker.jsp'">Distance Finder</div>
+					<div class="panellink"></div>
+					<div class="panellink" onclick="window.location.href='logout.jsp'">Logout</div>
+				</div></p>
+                              </div>
+                            </div>
 				<div class="content">
 					<div class="cheader">Distance Finder</div>
 					<div class="csubheader">- find distance from your lovedone's</div>
@@ -64,7 +75,6 @@
                                                                         if(a==null){
                                                                         %>
 									<div class="td">Not Accepted Yet...</div>
-									<div class="td">-</div>
 									<div class="td">-</div>
 									<div class="td">-</div>
 									<div class="td">-</div>

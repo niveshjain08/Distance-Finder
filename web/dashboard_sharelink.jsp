@@ -8,9 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="css/header.css">
 		<link rel="stylesheet" href="css/footer.css">
-		<link rel="stylesheet" href="css/Home.css">
 		<link rel="stylesheet" href="css/login.css">
 		<link rel="stylesheet" href="css/dashboard.css">
+		<link rel="stylesheet" href="css/Home.css">
     </head>
     <body>
         <%@include file="header.jsp"%>
@@ -22,6 +22,17 @@
 					<div class="panellink"></div>
 					<div class="panellink" onclick="window.location.href='logout.jsp'">Logout</div>
 				</div>
+                            <div class="dropdown panellink">
+                              <span>User Options </span>
+                              <div class="dropdown-content">
+                              <p><div class="panel  panel1">
+					<div class="panellink active"  onclick="window.location.href='dashboard_makeyourlink.jsp'">Find Distance</div>
+					<div class="panellink "   onclick="window.location.href='dashboard_distancetraker.jsp'">Distance Finder</div>
+					<div class="panellink"></div>
+					<div class="panellink" onclick="window.location.href='logout.jsp'">Logout</div>
+				</div></p>
+                              </div>
+                            </div>
 				<div class="content">
 					<div class="cheader">Find Distance</div>
 					<div class="csubheader">- start your link for get location distance....</div>
@@ -54,8 +65,6 @@
                                                     <a href="https://wa.me/?lang=en&text=*Distance Finder*   <%=url%>"    data-action="share/whatsapp/share"  
         target="_blank">
                                                     <div class="button" >Whatsapp </div> </a> 
-                                                    <div class="button">Facebook </div>
-                                                    <div class="button">Telegram </div>
                                                 </div> 
                                                     <%
                                                 }
